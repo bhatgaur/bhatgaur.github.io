@@ -17,7 +17,7 @@ body {
 
 .container {
     display: flex;
-    width: 90vw;
+    width: 80vw;
 }
 
 .panel {
@@ -25,7 +25,7 @@ body {
     background-color: rgb(19, 12, 83);
     background-position: center;
     background-repeat: no-repeat;
-    height:90vh;
+    height:80vh;
     color: #fff;
     cursor: pointer;
     flex: 0.5;
@@ -45,7 +45,7 @@ body {
 
 .panel.active {
     background-size: contain;
-    height: 90vh;
+    height: 80vh;
     flex: 2.5;
     margin:5px;
 }
