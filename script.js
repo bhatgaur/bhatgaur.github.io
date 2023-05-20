@@ -1,17 +1,17 @@
-const panels = document.querySelectorAll('.panel');
+const jokeEl = document.getElementById('joke');
+const jokeBtn = document.getElementById('jokeBtn');
 
-panels.forEach((panel) => {
-    panel.addEventListener('mouseover', () => {
-        removeActiveClasses()
-        panel.classList.add('active')
-    });
-    panel.addEventListener('mouseout', () => {
-        removeActiveClasses();
-    });
-}) 
+jokeBtn.addEventListener('click', generateJoke);
 
-function removeActiveClasses() {
-    panels.forEach((panel) => {
-        panel.classList.remove('active')
-    })
+generateJoke();
+
+async function generateJoke() {
+    const config = {
+        headers: {
+            Accept: 'application/json',
+        },
+    }
+    const res = await fetch('https://icanhazdadjoke.com', config);   
+    const data = await res.json();
+    jokeEl.innerHTML = data.joke;
 }
