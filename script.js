@@ -1,17 +1,20 @@
-const jokeEl = document.getElementById('joke');
-const jokeBtn = document.getElementById('jokeBtn');
+const textEl = document.getElementById('text');
 
-jokeBtn.addEventListener('click', generateJoke);
+const text = 'Under development. Check back later :)';
 
-generateJoke();
+let idx = 1;
+let speed = 300;
 
-async function generateJoke() {
-    const config = {
-        headers: {
-            Accept: 'application/json',
-        },
+writeText();
+
+function writeText() {
+    textEl.innerText = text.slice(0, idx);
+    
+    idx++;
+
+    if(idx > text.length) {
+        idx = 1;
     }
-    const res = await fetch('https://icanhazdadjoke.com', config);   
-    const data = await res.json();
-    jokeEl.innerHTML = data.joke;
+    
+    setTimeout(writeText, speed);
 }
